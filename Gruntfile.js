@@ -63,7 +63,7 @@ module.exports = function(grunt) {
             },
             js: {
                 options: {
-                    create: ['dist/js/', 'views/dist/img']
+                    create: ['dist/js/', 'views/dist/js']
                 }
             }
         },
@@ -132,5 +132,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
 
   grunt.registerTask('default', ['clean', 'mkdir', 'responsive_images', 'concat', 'minified', 'watch']);
+  // grunt.registerTask('default', ['clean', 'mkdir', 'concat', 'minified', 'watch']);
+
 
 };
