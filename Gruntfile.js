@@ -26,19 +26,26 @@ module.exports = function(grunt) {
                     src: ['*.{gif,jpg,png}'],
                     cwd: 'src/img/',
                     dest: 'dist/img/'
+                }],
+
+                filesViews: [{
+                    expand: true,
+                    src: ['*.{gif,jpg,png}'],
+                    cwd: 'views/src/',
+                    dest: 'views/dist/'
                 }]
             }
         },
 
         clean: {
             img: {
-                src: ['dist/img/']
+                src: ['dist/img/', 'views/dist/img']
             },
             css: {
-                src: ['dist/css/']
+                src: ['dist/css/','views/dist/css']
             },
             js: {
-                src: ['dist/js/']
+                src: ['dist/js/', 'views/dist/js']
             }
         },
 
@@ -46,17 +53,17 @@ module.exports = function(grunt) {
         mkdir: {
             img: {
                 options: {
-                    create: ['dist/img/']
+                    create: ['dist/img/', 'views/dist/img']
                 }
             },
             css: {
                 options: {
-                    create: ['dist/css/']
+                    create: ['dist/css/', 'views/dist/css']
                 }
             },
             js: {
                 options: {
-                    create: ['dist/js/']
+                    create: ['dist/js/', 'views/dist/img']
                 }
             }
         },

@@ -1,0 +1,7 @@
+# ignora todos os arquivos instalados pelo NPM
+dist/
+views/dist
+node_modules/
+
+#ignora arquivo ngrok
+ngrok.exe
