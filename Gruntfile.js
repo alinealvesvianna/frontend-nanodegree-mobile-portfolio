@@ -1,4 +1,4 @@
-module.exports = function(grunt) {
+module.exports = function (grunt) {
     grunt.initConfig({
 
         responsive_images: {
@@ -42,7 +42,7 @@ module.exports = function(grunt) {
                 src: ['dist/img/', 'views/dist/img']
             },
             css: {
-                src: ['dist/css/','views/dist/css']
+                src: ['dist/css/', 'views/dist/css']
             },
             js: {
                 src: ['dist/js/', 'views/dist/js']
@@ -68,27 +68,42 @@ module.exports = function(grunt) {
             }
         },
 
-        concat:{
-            dist:{
-              src: 'src/js/*.js',
-              dest:'dist/js/scripts.js'
+        concat: {
+            files: {
+                src: 'src/js/*.js',
+                dest: 'dist/js/scripts.js'
+            },
+            filesView: {
+                src: 'views/src/js/*.js',
+                dest: 'views/dist/js/scriptsViews.js'
             }
         },
 
 
-        minified : {
-          files: {
-            src: [
-            // '/js/src/**/*.js',
-            'src/js/*.js'
-            ],
-            dest: 'dist/js/script.min.js'
-          },
-          options : {
-            sourcemap: true,
-            allinone: false
-          }
+        minified: {
+            files: {
+                src: [
+                'dist/js/*.js'
+                ],
+                dest: 'dist/js/'
+            },
+
+            filesView: {
+                src: [
+                'views/dist/js/*.js'
+                ],
+                dest: 'views/dist/js/'
+            },
+
+            options: {
+                sourcemap: false,
+                allinone: false,
+                ext: '.min.js'
+            },
+
+
         },
+
 
         // htmlmin: {                                     // Task
         //   dist: {                                      // Target
@@ -123,16 +138,16 @@ module.exports = function(grunt) {
         },
 
 
-  });
-  grunt.loadNpmTasks('grunt-contrib-clean');
-  grunt.loadNpmTasks('grunt-mkdir');
-  grunt.loadNpmTasks('grunt-responsive-images');
-  grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.loadNpmTasks('grunt-minified');
-  grunt.loadNpmTasks('grunt-contrib-watch');
+    });
+    grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-mkdir');
+    grunt.loadNpmTasks('grunt-responsive-images');
+    grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-minified');
+    grunt.loadNpmTasks('grunt-contrib-watch');
 
-  grunt.registerTask('default', ['clean', 'mkdir', 'responsive_images', 'concat', 'minified', 'watch']);
-  // grunt.registerTask('default', ['clean', 'mkdir', 'concat', 'minified', 'watch']);
+    grunt.registerTask('default', ['clean', 'mkdir', 'responsive_images', 'concat', 'minified', 'watch']);
+    // grunt.registerTask('default', ['clean', 'mkdir', 'concat', 'minified', 'watch']);
 
 
 };
