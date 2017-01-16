@@ -170,7 +170,7 @@ module.exports = function (grunt) {
                 files: [{
                     expand: true,
                     flatten: true,
-                    src: ['source/index.html'],
+                    src: ['source/index.html', 'source/project-2048.html', 'source/project-mobile.html', 'source/project-webperf.html'],
                     dest: 'dist/'
                 }]
             }
@@ -183,6 +183,9 @@ module.exports = function (grunt) {
               },
               files: {
                 'dist/index.html': 'dist/index.html',
+                'dist/project-2048.html': 'dist/project-2048.html',
+                'dist/project-mobile.html': 'dist/project-mobile.html',
+                'dist/project-webperf.html': 'dist/project-webperf.html'
               }
             }
           }
