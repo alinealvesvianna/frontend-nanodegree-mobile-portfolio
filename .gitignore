@@ -3,7 +3,6 @@ node_modules/
 
 # ignora todos os arquivos gerados pelo grunt
 dist/
-views/dist
 
 #ignora arquivo ngrok
 ngrok.exe
