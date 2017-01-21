@@ -1,24 +1,24 @@
-module.exports = function (grunt) {
+module.exports = function(grunt) {
 
     grunt.initConfig({
 
         responsive_images: {
-            img: {
+            imgIndex: {
                 options: {
                     engine: 'im',
                     sizes: [{
                         name: 'small',
-                        width: 320,
+                        width: 100,
                         suffix: '_x1',
                         quality: 40
                     }, {
                         name: 'medium',
-                        width: 640,
+                        width: 200,
                         suffix: '_x2',
                         quality: 40
                     }, {
                         name: 'large',
-                        width: 1024,
+                        width: 300,
                         suffix: '_x3',
                         quality: 40
                     }]
@@ -26,17 +26,64 @@ module.exports = function (grunt) {
 
                 files: [{
                     expand: true,
-                    src: ['*.{gif,jpg,png}'],
-                    cwd: 'source/img/',
-                    dest: 'dist/img/'
-                }, {
+                    src: ['pizzeriaHome.{gif,jpg,png}'],
+                    cwd: 'source/views/images/',
+                    dest: 'dist/views/images/'
+                }]
+            },
+
+            imgPizzeria: {
+                options: {
+                    engine: 'im',
+                    sizes: [{
+                        name: 'small',
+                        width: 360,
+                        suffix: '_x1',
+                        quality: 40
+                    }, {
+                        name: 'medium',
+                        width: 720,
+                        suffix: '_x2',
+                        quality: 40
+                    }, {
+                        name: 'large',
+                        width: 1080,
+                        suffix: '_x3',
+                        quality: 40
+                    }]
+                },
+
+                files: [{
                     expand: true,
-                    src: ['*.{gif,jpg,png}'],
-                    cwd: 'source/img/img-web/',
-                    dest: 'dist/img/img-web/'
-                }, {
+                    src: ['pizzeria.{gif,jpg,png}'],
+                    cwd: 'source/views/images/',
+                    dest: 'dist/views/images/'
+                }]
+            },
+            imgPizza: {
+                options: {
+                    engine: 'im',
+                    sizes: [{
+                        name: 'small',
+                        width: 77,
+                        suffix: '_x1',
+                        quality: 40
+                    }, {
+                        name: 'medium',
+                        width: 154,
+                        suffix: '_x2',
+                        quality: 40
+                    }, {
+                        name: 'large',
+                        width: 232,
+                        suffix: '_x3',
+                        quality: 40
+                    }]
+                },
+
+                files: [{
                     expand: true,
-                    src: ['*.{gif,jpg,png}'],
+                    src: ['pizza.{gif,jpg,png}'],
                     cwd: 'source/views/images/',
                     dest: 'dist/views/images/'
                 }]
@@ -44,7 +91,7 @@ module.exports = function (grunt) {
         },
 
         imagemin: {
-            dynamic: {
+            img: {
                 options: {
                     optimizationLevel: 3,
                     svgoPlugins: [{
@@ -53,15 +100,24 @@ module.exports = function (grunt) {
                 },
                 files: [{
                     expand: true,
-                    cwd: 'dist/img/',
+                    cwd: 'source/img/',
                     src: ['*.{png,jpg,gif}'],
                     dest: 'dist/img/'
                 }, {
                     expand: true,
-                    cwd: 'dist/img/img-web/',
+                    cwd: 'source/img/img-web/',
                     src: ['*.{png,jpg,gif}'],
                     dest: 'dist/img/img-web/'
-                }, {
+                }]
+            },
+            viewImages: {
+                options: {
+                    optimizationLevel: 3,
+                    svgoPlugins: [{
+                        removeViewBox: false
+                    }],
+                },
+                files: [{
                     expand: true,
                     cwd: 'dist/views/images/',
                     src: ['*.{png,jpg,gif}'],
@@ -72,7 +128,7 @@ module.exports = function (grunt) {
 
         clean: {
             dist: {
-                src:['dist/img/', 'dist/img/img-web', 'dist/views/images', 'dist/css/', 'dist/views/css', 'dist/js/', 'dist/views/js', 'dist/']
+                src: ['dist/img/', 'dist/img/img-web', 'dist/views/images', 'dist/css/', 'dist/views/css', 'dist/js/', 'dist/views/js', 'dist/']
             }
         },
 
@@ -178,28 +234,33 @@ module.exports = function (grunt) {
 
         htmlmin: {
             dist: {
-              options: {
-                collapseWhitespace: true
-              },
-              files: {
-                'dist/index.html': 'dist/index.html',
-                'dist/project-2048.html': 'dist/project-2048.html',
-                'dist/project-mobile.html': 'dist/project-mobile.html',
-                'dist/project-webperf.html': 'dist/project-webperf.html'
-              }
+                options: {
+                    collapseWhitespace: true
+                },
+                files: {
+                    'dist/index.html': 'dist/index.html',
+                    'dist/project-2048.html': 'dist/project-2048.html',
+                    'dist/project-mobile.html': 'dist/project-mobile.html',
+                    'dist/project-webperf.html': 'dist/project-webperf.html'
+                }
             }
-          }
+        }
 
 
         // watch: {
         //     minified: {
-        //         files: 'src/js/*.js',
+        //         files: ['source/js/*.js','source/views/js/*.js'],
         //         tasks: ['minified']
         //     },
         //
-        //     concat: {
-        //         files: 'src/js/*.js',
-        //         tasks: ['concat']
+        //     cssmin: {
+        //         files: ['source/css/', 'source/views/css/'],
+        //         tasks: ['cssmin']
+        //     },
+        //
+        //     replace: {
+        //         files: ['source/css/', 'source/views/css/'],
+        //         tasks: ['cssmin']
         //     }
         // },
 
