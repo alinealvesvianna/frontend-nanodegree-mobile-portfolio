@@ -415,7 +415,8 @@ var pizzaElementGenerator = function(i) {
     pizzaImageContainer.classList.add("pizzaImageContainer");
 
 
-    pizzaImage.src = "images/pizza-small_x1.png";
+    // pizzaImage.src = "images/pizza-small_x1.png";
+    pizzaImage.src = "images/pizza.png";
     pizzaImage.classList.add("img-responsive");
     pizzaImageContainer.appendChild(pizzaImage);
     pizzaContainer.appendChild(pizzaImageContainer);
@@ -439,6 +440,10 @@ var pizzaElementGenerator = function(i) {
 // resizePizzas(size) is called when the slider in the "Our Pizzas" section of the website moves.
 var resizePizzas = function(size) {
     window.performance.mark("mark_start_resize"); // User Timing API function
+
+
+
+
 
     // Changes the value for the size of the pizza above the slider
     function changeSliderLabel(size) {
@@ -590,7 +595,8 @@ document.addEventListener('DOMContentLoaded', function() {
     for (var i = 0; i < 200; i++) {
         var elem = document.createElement('img');
         elem.className = 'mover';
-        elem.src = "images/pizza-small_x1.png";
+        // elem.src = "images/pizza-small_x1.png";
+        elem.src = "images/pizza.png";
         elem.style.height = "100px";
         elem.style.width = "73.333px";
         elem.basicLeft = (i % cols) * s;
