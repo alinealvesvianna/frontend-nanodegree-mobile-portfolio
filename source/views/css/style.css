@@ -1,51 +1,80 @@
 /** {
   outline: 1px solid red !important;
 }*/
+
 * {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -box-sizing: border-box;
 }
 
 body {
-  font-family: "Trebuchet MS", Helvetica, sans-serif;
-  background: black;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    background: black;
 }
 
 input {
-  background: grey;
-  font-size: 18px;
+    background: grey;
+    font-size: 18px;
 }
 
 form {
-  display: inline-block;
+    display: inline-block;
 }
 
 .centered {
-  text-align: center;
+    text-align: center;
 }
 
 #pizzaSize {
-  font-weight: 800;
+    font-weight: 800;
+}
+
+/*posicionando container para trocar position por transform no .mover*/
+#movingPizzas1 {
+    position: absolute;
+    left: 0;
 }
 
 .mover {
-  position: fixed;
-  width: 256px;
-  z-index: -1;
+    position: fixed;
+    width: 256px;
+    z-index: -1;
+    will-change: transform;
+}
+
+
+/* Usando flebox para não precisar aplicar height para igualar altura*/
+
+.containerAllRadomPizza {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
 }
 
 .randomPizzaContainer {
-  float: left;
-  display: flex;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.pizzaImageContainer {
+    width: 35%;
+}
+
+.pizzaDescriptionContainer {
+    width: 65%;
 }
 
 .randomPizzaContainer:after {
-  content: "";
-  display: table;
-  clear:both;
+    content: "";
+    display: table;
+    clear: both;
 }
 
- .container {
-  background-color: rgba(240, 60, 60, 0.8);
+.container {
+    background-color: rgba(240, 60, 60, 0.8);
 }

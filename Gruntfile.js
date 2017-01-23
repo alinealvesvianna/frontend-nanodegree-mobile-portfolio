@@ -32,6 +32,42 @@ module.exports = function(grunt) {
                 }]
             },
 
+            imgWeb: {
+                options: {
+                    engine: 'im',
+                    sizes: [{
+                        rename: false,
+                        width: 100,
+                        quality: 40
+                    }]
+                },
+
+                files: [{
+                    expand: true,
+                    src: ['*.{gif,jpg,png}'],
+                    cwd: 'source/img/img-web/',
+                    dest: 'dist/img/img-web/'
+                }]
+            },
+
+            imgProfile: {
+                options: {
+                    engine: 'im',
+                    sizes: [{
+                        rename: false,
+                        width: 70,
+                        quality: 40
+                    }]
+                },
+
+                files: [{
+                    expand: true,
+                    src: ['profilepic.{gif,jpg,png}'],
+                    cwd: 'source/img/',
+                    dest: 'dist/img/'
+                }]
+            },
+
             imgPizzeria: {
                 options: {
                     engine: 'im',
@@ -93,7 +129,7 @@ module.exports = function(grunt) {
         imagemin: {
             img: {
                 options: {
-                    optimizationLevel: 3,
+                    optimizationLevel: 7,
                     svgoPlugins: [{
                         removeViewBox: false
                     }],
@@ -105,14 +141,35 @@ module.exports = function(grunt) {
                     dest: 'dist/img/'
                 }, {
                     expand: true,
-                    cwd: 'source/img/img-web/',
+                    cwd: 'dist/img/',
+                    src: ['profilepic.{png,jpg,gif}'],
+                    dest: 'dist/img/'
+                }, {
+                    expand: true,
+                    cwd: 'dist/img/img-web/',
                     src: ['*.{png,jpg,gif}'],
                     dest: 'dist/img/img-web/'
                 }]
             },
+
+            imgProfile: {
+                options: {
+                    optimizationLevel: 7,
+                    svgoPlugins: [{
+                        removeViewBox: false
+                    }],
+                },
+                files: [{
+                    expand: true,
+                    cwd: 'dist/img/',
+                    src: ['profilepic.{png,jpg,gif}'],
+                    dest: 'dist/img/'
+                }]
+            },
+
             viewImages: {
                 options: {
-                    optimizationLevel: 3,
+                    optimizationLevel: 7,
                     svgoPlugins: [{
                         removeViewBox: false
                     }],
@@ -197,7 +254,10 @@ module.exports = function(grunt) {
         },
 
         cssmin: {
-
+            options: {
+                shorthandCompacting: false,
+                roundingPrecision: -1
+            },
             minify: {
                 files: [{
                     expand: true,
@@ -205,12 +265,9 @@ module.exports = function(grunt) {
                     src: ['*.css', '!*.min.css'],
                     dest: 'dist/css/',
                     ext: '.min.css'
-                }, {
-                    expand: true,
-                    cwd: 'source/views/css/',
-                    src: ['*.css', '!*.min.css'],
-                    dest: 'dist/views/css/',
-                    ext: '.min.css'
+                },
+                {
+                    'dist/views/css/style.min.css': ['source/views/css/bootstrap-grid.css', 'source/views/css/style.css']
                 }]
             }
         },
@@ -230,12 +287,27 @@ module.exports = function(grunt) {
                     dest: 'dist/'
                 }]
             }
+            // includeCssView: {
+            //     options: {
+            //         patterns: [{
+            //             match: 'include_css_style_tag',
+            //             replacement: '<%= grunt.file.read("dist/views/css/style.min.css") %>'
+            //         }]
+            //     },
+            //     files: [{
+            //         expand: true,
+            //         flatten: true,
+            //         src: 'source/views/pizza.html',
+            //         dest: 'dist/views/'
+            //     }]
+            // }
         },
 
         htmlmin: {
             dist: {
                 options: {
-                    collapseWhitespace: true
+                    collapseWhitespace: true,
+                    removeComments: true,
                 },
                 files: {
                     'dist/index.html': 'dist/index.html',
@@ -244,6 +316,16 @@ module.exports = function(grunt) {
                     'dist/project-webperf.html': 'dist/project-webperf.html'
                 }
             }
+
+            // distViews: {
+            //     options: {
+            //         collapseWhitespace: true,
+            //         removeComments: true,
+            //     },
+            //     files: {
+            //         'dist/views/pizza.html': 'dist/views/pizza.html'
+            //     }
+            // }
         }
 
 
