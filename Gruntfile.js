@@ -286,21 +286,21 @@ module.exports = function(grunt) {
                     src: ['source/index.html', 'source/project-2048.html', 'source/project-mobile.html', 'source/project-webperf.html'],
                     dest: 'dist/'
                 }]
+            },
+            includeCssView: {
+                options: {
+                    patterns: [{
+                        match: 'include_css_style_tag',
+                        replacement: '<%= grunt.file.read("dist/views/css/style.min.css") %>'
+                    }]
+                },
+                files: [{
+                    expand: true,
+                    flatten: true,
+                    src: 'source/views/pizza.html',
+                    dest: 'dist/views/'
+                }]
             }
-            // includeCssView: {
-            //     options: {
-            //         patterns: [{
-            //             match: 'include_css_style_tag',
-            //             replacement: '<%= grunt.file.read("dist/views/css/style.min.css") %>'
-            //         }]
-            //     },
-            //     files: [{
-            //         expand: true,
-            //         flatten: true,
-            //         src: 'source/views/pizza.html',
-            //         dest: 'dist/views/'
-            //     }]
-            // }
         },
 
         htmlmin: {
@@ -315,17 +315,17 @@ module.exports = function(grunt) {
                     'dist/project-mobile.html': 'dist/project-mobile.html',
                     'dist/project-webperf.html': 'dist/project-webperf.html'
                 }
-            }
+            },
 
-            // distViews: {
-            //     options: {
-            //         collapseWhitespace: true,
-            //         removeComments: true,
-            //     },
-            //     files: {
-            //         'dist/views/pizza.html': 'dist/views/pizza.html'
-            //     }
-            // }
+            distViews: {
+                options: {
+                    collapseWhitespace: true,
+                    removeComments: true,
+                },
+                files: {
+                    'dist/views/pizza.html': 'dist/views/pizza.html'
+                }
+            }
         }
 
 

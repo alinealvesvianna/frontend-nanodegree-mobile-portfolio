@@ -415,7 +415,7 @@ var pizzaElementGenerator = function(i) {
     pizzaImageContainer.classList.add("pizzaImageContainer");
 
 
-    pizzaImage.src = "images/pizza.png";
+    pizzaImage.src = "images/pizza-small_x1.png";
     pizzaImage.classList.add("img-responsive");
     pizzaImageContainer.appendChild(pizzaImage);
     pizzaContainer.appendChild(pizzaImageContainer);
@@ -551,7 +551,6 @@ function updatePositions() {
     // var items = document.querySelectorAll('.mover');
     var items = getDomNodeArray('mover')
 
-
     items.forEach(function(item) {
         //se a posição do .mover na janela não estiver acima da dobra, não aplico o posicionamento
         if (item.heightDocument < window.innerHeight) {
@@ -591,20 +590,16 @@ document.addEventListener('DOMContentLoaded', function() {
     for (var i = 0; i < 200; i++) {
         var elem = document.createElement('img');
         elem.className = 'mover';
-        elem.src = "images/pizza.png";
+        elem.src = "images/pizza-small_x1.png";
         elem.style.height = "100px";
         elem.style.width = "73.333px";
         elem.basicLeft = (i % cols) * s;
         elem.style.top = (Math.floor(i / cols) * s) + 'px';
         //cria a propriedade no objeto .mover, que me diz em que altura do documento ele está
         elem.heightDocument = (Math.floor(i / cols) * s);
-        // document.querySelector("#movingPizzas1").appendChild(elem);
         containerMovingPizzas.appendChild(elem);
     }
 
     updatePositions();
-
-
-
 
 });
