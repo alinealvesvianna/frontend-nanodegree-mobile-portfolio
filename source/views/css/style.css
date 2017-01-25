@@ -30,7 +30,9 @@ form {
     font-weight: 800;
 }
 
+
 /*posicionando container para trocar position por transform no .mover*/
+
 #movingPizzas1 {
     position: absolute;
     left: 0;
@@ -38,7 +40,8 @@ form {
 
 .mover {
     position: fixed;
-    width: 256px;
+    height: 100px;
+    width: 73.333px;
     z-index: -1;
 }
 
@@ -52,6 +55,18 @@ form {
     -webkit-flex-wrap: wrap;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
+}
+
+.containerAllRadomPizza.smallSize .randomPizzaContainer {
+    width: 25%;
+}
+
+.containerAllRadomPizza.mediumSize .randomPizzaContainer {
+    width: 33.33%;
+}
+
+.containerAllRadomPizza.bigSize .randomPizzaContainer {
+    width: 50%;
 }
 
 .randomPizzaContainer {
