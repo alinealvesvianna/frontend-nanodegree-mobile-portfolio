@@ -216,18 +216,6 @@ module.exports = function(grunt) {
             }
         },
 
-        // concat: {
-        //     files: {
-        //         src: 'src/js/*.js',
-        //         dest: 'dist/js/scripts.js'
-        //     },
-        //     filesView: {
-        //         src: 'views/src/js/*.js',
-        //         dest: 'views/dist/js/scriptsViews.js'
-        //     }
-        // },
-
-
         minified: {
 
             files: {
@@ -329,24 +317,6 @@ module.exports = function(grunt) {
         }
 
 
-        // watch: {
-        //     minified: {
-        //         files: ['source/js/*.js','source/views/js/*.js'],
-        //         tasks: ['minified']
-        //     },
-        //
-        //     cssmin: {
-        //         files: ['source/css/', 'source/views/css/'],
-        //         tasks: ['cssmin']
-        //     },
-        //
-        //     replace: {
-        //         files: ['source/css/', 'source/views/css/'],
-        //         tasks: ['cssmin']
-        //     }
-        // },
-
-
     });
 
     grunt.loadNpmTasks('grunt-contrib-clean');
@@ -357,7 +327,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-replace');
     grunt.loadNpmTasks('grunt-contrib-htmlmin');
-    // grunt.loadNpmTasks('grunt-contrib-watch');
 
     grunt.registerTask('default', ['clean', 'mkdir', 'responsive_images', 'imagemin', 'minified', 'cssmin', 'replace', 'htmlmin']);
 
