@@ -408,15 +408,10 @@ var pizzaElementGenerator = function(i) {
     pizzaContainer.id = "pizza" + i; // gives each pizza element a unique id
     pizzaImageContainer.classList.add("pizzaImageContainer");
 
-
-    // pizzaImage.src = "images/pizza-small_x1.png";
-    pizzaImage.src = "images/pizza.png";
+    pizzaImage.src = "images/pizza-small_x1.png";
     pizzaImage.classList.add("img-responsive");
     pizzaImageContainer.appendChild(pizzaImage);
     pizzaContainer.appendChild(pizzaImageContainer);
-
-
-    // pizzaDescriptionContainer.style.width = "65%";
     pizzaDescriptionContainer.classList.add("pizzaDescriptionContainer");
 
     pizzaName = document.createElement("h4");
@@ -430,6 +425,7 @@ var pizzaElementGenerator = function(i) {
 
     return pizzaContainer;
 };
+
 
 var valuesSizeSlider = {
     sizeNames: {
@@ -455,7 +451,9 @@ var resizePizzas = function(size) {
     // Changes the value for the size of the pizza above the slider
     pizzaNameSlider.innerHTML = valuesSizeSlider.sizeNames[size];
 
+    //removo todas as classes
     containerAllPizzas.classList.remove(valuesSizeSlider.classNames[1], valuesSizeSlider.classNames[2], valuesSizeSlider.classNames[3])
+    //adiciono a classe que preciso
     containerAllPizzas.classList.add(valuesSizeSlider.classNames[size])
 
     // User Timing API is awesome
@@ -525,7 +523,6 @@ function updatePositions() {
     }
 }
 
-
 // runs updatePositions on scroll
 window.addEventListener('scroll', updatePositions);
 
@@ -546,8 +543,7 @@ document.addEventListener('DOMContentLoaded', function() {
     for (var i = 0; i < drawPizzas; i++) {
         var elem = document.createElement('img');
         elem.className = 'mover';
-        // elem.src = "images/pizza-small_x1.png";
-        elem.src = "images/pizza.png";
+        elem.src = "images/pizza-small_x1.png";
         elem.basicLeft = (i % cols) * s;
         elem.style.top = (Math.floor(i / cols) * s) + 'px';
         //cria a propriedade no objeto .mover, que me diz em que altura do documento ele está
