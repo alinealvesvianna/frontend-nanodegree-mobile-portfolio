@@ -410,7 +410,7 @@ var pizzaElementGenerator = function(i) {
 
 
     // pizzaImage.src = "images/pizza-small_x1.png";
-    pizzaImage.src = "images/pizza.png";
+    pizzaImage.src = "images/pizza-medium_x2.png";
     pizzaImage.classList.add("img-responsive");
     pizzaImageContainer.appendChild(pizzaImage);
     pizzaContainer.appendChild(pizzaImageContainer);
@@ -540,14 +540,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     //pegando a altura da tela para ver quantas pizzas preciso gerar
     var sizeWindow = window.innerHeight;
-    var drawPizzas = (Math.floor(sizeWindow / s) * cols);
+    var drawPizzas = (Math.ceil(sizeWindow / s) * cols);
     console.log(drawPizzas)
 
     for (var i = 0; i < drawPizzas; i++) {
         var elem = document.createElement('img');
         elem.className = 'mover';
         // elem.src = "images/pizza-small_x1.png";
-        elem.src = "images/pizza.png";
+        elem.src = "images/pizza-small_x1.png";
         elem.basicLeft = (i % cols) * s;
         elem.style.top = (Math.floor(i / cols) * s) + 'px';
         //cria a propriedade no objeto .mover, que me diz em que altura do documento ele está

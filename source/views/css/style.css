@@ -69,6 +69,23 @@ form {
     width: 50%;
 }
 
+.containerAllRadomPizza.smallSize .pizzaImageContainer {
+    width: 25%;
+}
+
+.containerAllRadomPizza.mediumSize .pizzaImageContainer {
+    width: 33.33%;
+}
+
+.containerAllRadomPizza.bigSize .pizzaImageContainer {
+    width: 40%;
+}
+
+
+.containerAllRadomPizza.bigSize img{
+  width:100%;
+}
+
 .randomPizzaContainer {
     display: -webkit-flex;
     display: -ms-flexbox;
