@@ -23,7 +23,7 @@ de 60fps. E o tempo de redimensionamento das pizzas deve ser menor que 5ms.
 
 Para visualizar o projeto corretamente, faça o seguinte:
 
-1- Clone ou faça download do projeto.
+1- Clone ou faça download do projeto. Você pode visualizar o projeto por esse link também.
 
 2- Instale os pacotes de dependência do projeto, navegando até a pasta e executando o npm com os seguintes comandos:
 
