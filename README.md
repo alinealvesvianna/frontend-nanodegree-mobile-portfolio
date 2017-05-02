@@ -23,7 +23,9 @@ de 60fps. E o tempo de redimensionamento das pizzas deve ser menor que 5ms.
 
 Para visualizar o projeto corretamente, faça o seguinte:
 
-1- Instale os pacotes de dependência do projeto, navegando até a pasta e executando o npm com os seguintes comandos:
+1- Clone ou faça download do projeto.
+
+2- Instale os pacotes de dependência do projeto, navegando até a pasta e executando o npm com os seguintes comandos:
 
 ```
 $> cd /path/to/frontend-nanodegree-mobile-portfolio
@@ -32,14 +34,14 @@ $> npm install
 
   * Para que o Grunt posso rodar corretamente suas tarefas, talvez você precise instalar na sua máquina o ImageMagick para redimensionar as imagens. O passo a passo esta nesse [repositório](https://github.com/andismith/grunt-responsive-images).
 
-2- Depois de instalar os pacotes, execute o grunt para gerar a pasta "dist",
+3- Depois de instalar os pacotes, execute o grunt para gerar a pasta "dist",
 onde estará o código otimizado e com os caminhos corretos para o projeto funcionar corretamente.
 
   ``
   $> grunt
   ``
 
-3-  Depois de concluídas as etapas 1 e 2, abra o browser e acesse o projeto pela pasta relativa a dist.
+4-  Depois de concluídas as etapas 1,2 e 3, abra o browser e acesse o projeto pela pasta relativa a dist.
 
   * caminhoDoProjeto/dist/index.html
   * caminhoDoProjeto/dist/views/pizza.html
